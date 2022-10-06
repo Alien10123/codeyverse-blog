@@ -3,14 +3,13 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 import prefetch from "@astrojs/prefetch";
-import svelte from "@astrojs/svelte";
 
 import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), tailwind(), prefetch(), svelte()],
+  integrations: [mdx(), sitemap(), tailwind(), prefetch()],
   output: "server",
   adapter: cloudflare()
 });
