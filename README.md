@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# codeyverse-blog
-=======
 # Codey Verse Blog
 
 This is a simple blog website for another website I am making called Codey Verse. I am going to use it to document how I am build Codey Verse.
@@ -21,4 +18,3 @@ You can edit the basic theme in the [tailwind css file](./tailwind.config.cjs). 
 I would not recommend contributing to this project as it will be quick and just a simple blog website.
 
 Thanks for looking at this repo! Bye!
->>>>>>> d90c3c2 (Add cloudflare, tailwind and svelte and create a readme)
