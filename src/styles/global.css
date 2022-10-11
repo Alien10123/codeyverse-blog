@@ -1,3 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Fira+Code:wght@700&display=swap");
+
 * {
-	color: white;
+    color: white;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.gradientText {
+    background: linear-gradient(45deg, #4b7ddb, #bbd2ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: inline-block;
+    font-family: "Fira Code", sans-serif;
+}
+
+.boardAdd::after {
+    @apply bg-brand;
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    animation: addWidth 1.5s 1s linear forwards;
+    transform: translateX(-1rem);
+}
+
+
+.boardAdd::before {
+    @apply bg-brand;
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    animation: addWidth 1.5s 1s linear forwards;
+    transform: translateX(-1rem);
+    margin-left: auto
+}
+
+.sideBarLeft{
+    @apply bg-brand;
+    content: '';
+    display: block;
+    width: 3px;
+    height: 0px;
+    animation: addHeight 0.58s 2.5s linear forwards;
+    margin-right: 0.9rem
+}
+
+.sideBarRight {
+    @apply bg-brand;
+    content: '';
+    display: block;
+    width: 3px;
+    height: 0px;
+    animation: addHeight 0.58s 2.5s linear forwards;
+    margin-left: 0.9rem;
+    margin-top: auto;
+}
+
+@keyframes addWidth {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: calc(100% + 2rem);
+    }
+}
+
+
+@keyframes addHeight {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 269px;
+    }
 }
