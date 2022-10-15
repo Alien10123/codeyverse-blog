@@ -42,58 +42,33 @@ console.log(new Date("7 October 2022 9:00 UTC+11").toDateString());
         <main>
             <h1 class="w-fit mx-auto text-5xl">Posts</h1>
             <section class="grid post-grid md:w-[80vw] mx-auto mt-5">
-                <section class="h-[30vh] rounded-3xl bg-neutral relative">
-                    <img
-                        src="/logo.png"
-                        alt="The Codey Verse Logo"
-                        class="h-[30vh] mx-auto absolute left-0 right-0 z-10"
-                    />
-                    <h3 class="text-2xl absolute bottom-0 mb-12 ml-6 z-20">
-                        Example Post
-                    </h3>
-                    <p class="text-l absolute bottom-0 mb-6 ml-6 z-20">
-                        Example Post Description
-                    </p>
-                </section>
-                <div class="h-[30vh] rounded-3xl bg-neutral relative">
-                    <img
-                        src="/logo.png"
-                        alt="The Codey Verse Logo"
-                        class="h-[30vh] mx-auto absolute left-0 right-0 z-10"
-                    />
-                    <h3 class="text-2xl absolute bottom-0 mb-12 ml-6 z-20">
-                        Example Post
-                    </h3>
-                    <p class="text-l absolute bottom-0 mb-6 ml-6 z-20">
-                        Example Post Description
-                    </p>
-                </div>
-                <div class="h-[30vh] rounded-3xl bg-neutral relative">
-                    <img
-                        src="/logo.png"
-                        alt="The Codey Verse Logo"
-                        class="h-[30vh] mx-auto absolute left-0 right-0 z-10"
-                    />
-                    <h3 class="text-2xl absolute bottom-0 mb-12 ml-6 z-20">
-                        Example Post
-                    </h3>
-                    <p class="text-l absolute bottom-0 mb-6 ml-6 z-20">
-                        Example Post Description
-                    </p>
-                </div>
-                <div class="h-[30vh] rounded-3xl bg-neutral relative">
-                    <img
-                        src="/logo.png"
-                        alt="The Codey Verse Logo"
-                        class="h-[30vh] mx-auto absolute left-0 right-0 z-10"
-                    />
-                    <h3 class="text-2xl absolute bottom-0 mb-12 ml-6 z-20">
-                        Example Post
-                    </h3>
-                    <p class="text-l absolute bottom-0 mb-6 ml-6 z-20">
-                        Example Post Description
-                    </p>
-                </div>
+                {
+                    posts.map((post, index) => {
+                        const link = `/blog/${post.file
+                            .split("/")
+                            .pop()
+                            .split(".")
+                            .shift()}`;
+                        return (
+                            <a href={link}>
+                                <div class={`h-[33vh] rounded-2xl relative bg-${post.frontmatter.background}`}>
+                                    <img
+                                        src={post.frontmatter.imgURL}
+                                        alt="The Codey Verse Logo"
+                                        class="h-[30vh] mx-auto absolute left-0 right-0 z-10"
+                                    />
+                                    <h3
+                                        class="text-3xl text-accent absolute bottom-0 pb-6 pt-10 pl-6 z-20 w-full rounded-2xl"
+                                        style="background: linear-gradient(rgba(40, 40, 40, 0), 40%, rgba(40, 40, 40, 1));"
+                                    >
+                                       {post.frontmatter.title}
+                                    </h3>
+                                    <p class="text-xl absolute bottom-0 pl-6 text-accent z-30">{post.frontmatter.pubDate}</p>
+                                </div>
+                            </a>
+                        );
+                    })
+                }
             </section>
         </main>
     </body>

@@ -59,7 +59,7 @@
 }
 
 .post-grid {
-    grid-template-columns: repeat(auto-fit, minmax(456px, 456px));
+    grid-template-columns: repeat(auto-fit, minmax(440px, 440px));
     display: grid;
     gap: 1.25rem;
     justify-content: center;
