@@ -18,45 +18,55 @@
 
 .boardAdd::after {
     @apply bg-brand;
-    content: '';
+    content: "";
     display: block;
     width: 0;
     height: 3px;
     animation: addWidth 1.5s 1s linear forwards;
     transform: translateX(-1rem);
 }
-
 
 .boardAdd::before {
     @apply bg-brand;
-    content: '';
+    content: "";
     display: block;
     width: 0;
     height: 3px;
     animation: addWidth 1.5s 1s linear forwards;
     transform: translateX(-1rem);
-    margin-left: auto
+    margin-left: auto;
 }
 
-.sideBarLeft{
+.sideBarLeft {
     @apply bg-brand;
-    content: '';
+    content: "";
     display: block;
     width: 3px;
     height: 0px;
     animation: addHeight 0.58s 2.5s linear forwards;
-    margin-right: 0.9rem
+    margin-right: 0.9rem;
 }
 
 .sideBarRight {
     @apply bg-brand;
-    content: '';
+    content: "";
     display: block;
     width: 3px;
     height: 0px;
     animation: addHeight 0.58s 2.5s linear forwards;
     margin-left: 0.9rem;
     margin-top: auto;
+}
+
+.post-grid {
+    grid-template-columns: repeat(auto-fit, minmax(456px, 456px));
+    display: grid;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+    .post-grid { grid-template-columns: repeat(auto-fit, minmax(100vw, 100vw)); }
 }
 
 @keyframes addWidth {
@@ -67,7 +77,6 @@
         width: calc(100% + 2rem);
     }
 }
-
 
 @keyframes addHeight {
     0% {
