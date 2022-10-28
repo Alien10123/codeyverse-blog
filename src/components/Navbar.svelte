@@ -13,7 +13,7 @@
                 state = Math.floor(Math.random() * 6)
             }, 2500)
         }
-    }, 5000)
+    }, 6000)
 </script>
 
 <nav
