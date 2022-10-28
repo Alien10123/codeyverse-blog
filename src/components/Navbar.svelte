@@ -3,17 +3,17 @@
     let state: string | number = 0;
     let shapeHover = false;
 
-    state = 3;
-
+    state = Math.floor(Math.random() * 6);
+    
     setInterval(() => {
-        console.log(shapeHover, state);
+        console.log(shapeHover)
         if (navOpen && shapeHover === false) {
-            state = 3;
+            state = "transition"
             setTimeout(() => {
-                state = 3;
-            }, 2500);
+                state = Math.floor(Math.random() * 6)
+            }, 2500)
         }
-    }, 7000);
+    }, 5000)
 </script>
 
 <nav
