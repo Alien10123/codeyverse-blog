@@ -1,26 +1,47 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title="The Codey Verse Blog" description="A website were I will blog my experience in building Codey Verse, a open source website where anyone will be able to learn how to code for free." />
-	</head>
-	<body class="bg-base-100">
-		<Header />
-		<header class="pl-[6vw] pt-[15vh] w-fit">
-			<div class="flex">
-				<div class="sideBarLeft"></div>
-				<div class="boardAdd w-fit">
-					<h2 class="text-6xl text-center mt-4">The</h2>
-					<h1 class="font-bold gradientText h-28 text-8xl">Codey Verse</h1>
-					<h2 class="text-6xl text-center mb-4">Blog</h2>
-				</div>
-				<div class="sideBarRight"></div>
-			</div>
-			<h3 class="text-2xl mt-5"> Learn about how this website is being made and try it yourself!</h3>
-		</header>
-	</body>
+    <head>
+        <BaseHead
+            title="The Codey Verse Blog"
+            description="A website were I will blog my experience in building Codey Verse, a open source website where anyone will be able to learn how to code for free."
+        />
+    </head>
+    <body class="bg-base-100">
+        <Header />
+        <img src="/waves.svg" alt="Cool Waves">
+        <main
+            class="flex flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full place-items-center"
+        >
+            <div class="h-fit flex justify-start">
+                <div class="sideBarLeft relative z-40"></div>
+                <div class="boardAdd">
+                    <h2
+                        class="text-4xl md:text-5xl text-center mt-4 lg:text-6xl"
+                    >
+                        The
+                    </h2>
+                    <h1
+                        class="font-bold gradientText text-5xl md:text-7xl lg:text-8xl"
+                    >
+                        Codey Verse
+                    </h1>
+                    <h2
+                        class="text-4xl md:text-5xl text-center mb-4 lg:text-6xl"
+                    >
+                        Blog
+                    </h2>
+                </div>
+                <div class="sideBarRight"></div>
+            </div>
+            <h3 class="text-2xl mt-5 text-center">
+                Learn about how this website is<br />being made and try it
+                yourself!
+            </h3>
+        </main>
+    </body>
 </html>
