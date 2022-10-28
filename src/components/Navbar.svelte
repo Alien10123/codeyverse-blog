@@ -4,16 +4,16 @@
     let shapeHover = false;
 
     state = Math.floor(Math.random() * 6);
-    
+
     setInterval(() => {
-        console.log(shapeHover)
+        console.log(shapeHover);
         if (navOpen && shapeHover === false) {
-            state = "transition"
+            state = "transition";
             setTimeout(() => {
-                state = Math.floor(Math.random() * 6)
-            }, 2500)
+                state = Math.floor(Math.random() * 6);
+            }, 2500);
         }
-    }, 6000)
+    }, 6000);
 </script>
 
 <nav
@@ -48,32 +48,47 @@
                 data-config={state}
                 on:mouseenter={() => (shapeHover = true)}
                 on:mouseleave={() => (shapeHover = false)}
-            ><h3 class="lg:text-4xl md:text-2xl text-base-100 font-bold">Home</h3></div></a
+            >
+                <h3 class="lg:text-4xl md:text-2xl text-base-100 font-bold">
+                    Home
+                </h3>
+            </div></a
         >
         <a href="/posts">
             <div
-            class="bg-secondary navShape2 absolute shape grid place-items-center"
-            data-config={state}
-            on:mouseenter={() => (shapeHover = true)}
-            on:mouseleave={() => (shapeHover = false)}
-            ><h3 class="lg:text-4xl md:text-2xl text-accent font-bold">Posts</h3></div>
+                class="bg-secondary navShape2 absolute shape grid place-items-center"
+                data-config={state}
+                on:mouseenter={() => (shapeHover = true)}
+                on:mouseleave={() => (shapeHover = false)}
+            >
+                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">
+                    Posts
+                </h3>
+            </div>
         </a>
         <a href="https://github.com/Alien10123/codeyverse-blog" target="_blank">
             <div
-            class="bg-brand navShape3 absolute shape grid place-items-center"
-            data-config={state}
-            on:mouseenter={() => (shapeHover = true)}
-            on:mouseleave={() => (shapeHover = false)}
+                class="bg-brand navShape3 absolute shape grid place-items-center"
+                data-config={state}
+                on:mouseenter={() => (shapeHover = true)}
+                on:mouseleave={() => (shapeHover = false)}
             >
-        <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">Blog Github</h3></div>
+                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">
+                    Blog Github
+                </h3>
+            </div>
         </a>
         <a href="https://github.com/Alien10123/codeyverse" target="_blank">
             <div
-            class="bg-neutral navShape4 absolute shape grid place-items-center"
-            data-config={state}
-            on:mouseenter={() => (shapeHover = true)}
-            on:mouseleave={() => (shapeHover = false)}
-            ><h3 class="lg:text-4xl md:text-2xl text-accent font-bold">Codey Verse Github</h3></div>
+                class="bg-neutral navShape4 absolute shape grid place-items-center"
+                data-config={state}
+                on:mouseenter={() => (shapeHover = true)}
+                on:mouseleave={() => (shapeHover = false)}
+            >
+                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">
+                    Codey Verse Github
+                </h3>
+            </div>
         </a>
     </div>
 </nav>
