@@ -42,7 +42,7 @@
     } bg-primary absolute z-50 transition-all duration-[3s]`}
 >
     <div class="hidden h-full w-full md:block">
-        <a href="/"
+        <a href="/" rel="prefetch"
             ><div
                 class="bg-accent navShape1 absolute shape grid place-items-center"
                 data-config={state}
@@ -54,7 +54,7 @@
                 </h3>
             </div></a
         >
-        <a href="/posts">
+        <a href="/posts" rel="prefetch">
             <div
                 class="bg-secondary navShape2 absolute shape grid place-items-center"
                 data-config={state}
