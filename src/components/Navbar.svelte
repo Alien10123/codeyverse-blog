@@ -49,7 +49,7 @@
                 on:mouseenter={() => (shapeHover = true)}
                 on:mouseleave={() => (shapeHover = false)}
             >
-                <h3 class="lg:text-4xl md:text-2xl text-base-100 font-bold">
+                <h3 class="lg:text-4xl md:text-2xl text-base-100 font-bold text-center">
                     Home
                 </h3>
             </div></a
@@ -61,7 +61,7 @@
                 on:mouseenter={() => (shapeHover = true)}
                 on:mouseleave={() => (shapeHover = false)}
             >
-                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">
+                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold text-center">
                     Posts
                 </h3>
             </div>
@@ -73,7 +73,7 @@
                 on:mouseenter={() => (shapeHover = true)}
                 on:mouseleave={() => (shapeHover = false)}
             >
-                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">
+                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold text-center">
                     Blog Github
                 </h3>
             </div>
@@ -85,7 +85,7 @@
                 on:mouseenter={() => (shapeHover = true)}
                 on:mouseleave={() => (shapeHover = false)}
             >
-                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold">
+                <h3 class="lg:text-4xl md:text-2xl text-accent font-bold text-center">
                     Codey Verse Github
                 </h3>
             </div>
