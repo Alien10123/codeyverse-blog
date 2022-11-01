@@ -51,15 +51,15 @@ console.log(new Date("7 October 2022 9:00 UTC+11").toDateString());
                             .shift()}`;
                         return (
                             <a rel="prefetch" href={link}>
-                                <div class={`h-[33vh] rounded-2xl relative bg-success`}>
+                                <div class={`h-[33vh] rounded-2xl relative`} style={`background: #${post.frontmatter.background};`}>
                                     <img
                                         src={post.frontmatter.imgURL}
-                                        alt="The Codey Verse Logo"
+                                        alt={post.frontmatter.imgAlt}
                                         class="h-[30vh] mx-auto absolute left-0 right-0 z-10"
                                     />
                                     <h3
                                         class="text-3xl text-accent absolute bottom-0 pb-8 pt-10 pl-6 z-20 w-full rounded-2xl"
-                                        style="background: linear-gradient(rgba(40, 40, 40, 0), 40%, rgba(40, 40, 40, 1));"
+                                        style="background: linear-gradient(rgba(40, 40, 40, 0), 40%, rgba(40, 40, 40, 0.9));"
                                     >
                                        {post.frontmatter.title}
                                     </h3>

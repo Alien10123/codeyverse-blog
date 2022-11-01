@@ -3,53 +3,47 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 
 export interface Props {
-	content: {
-		title: string;
-		description: string;
-		pubDate?: string;
-		updatedDate?: string;
-		heroImage?: string;
-	};
+    content: {
+        title: string;
+        description: string;
+        pubDate?: string;
+        imgURL: string;
+        background: string;
+        imgAlt: string;
+    };
 }
 
 const {
-	content: { title, description, pubDate, updatedDate, heroImage },
+    content: { title, description, pubDate, imgURL, background, imgAlt },
 } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-  				border-top: 1px solid #DDD;
-				margin: 1rem 0;
-			}
-		</style>
-	</head>
+    <head>
+        <BaseHead title={title + " | Codey Verse"} description={description} />
+    </head>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				{heroImage && (
-					<img
-						width={720}
-						height={360}
-						src={heroImage}
-						alt=""
-					/>
-				)}
-				<h1 class="title">{title}</h1>
-				{pubDate && <time>{new Date(pubDate).toDateString()}</time>}
-				{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-				<hr/>
-				<slot />
-			</article>
-		</main>
-	</body>
+    <body class="bg-base-100">
+        <Header />
+        <main>
+            <article>
+                <header
+                    style={`background: linear-gradient(0deg, rgba(40,40,40,0.9) 17%, rgba(187,210,255,0) 75%), url('/examplePost.png'), #${background}; background-size: contain; background-repeat: no-repeat; background-position: center;`}
+                    class={`w-screen h-[40vh] flex flex-col justify-end gap-3 pb-3`}
+                >
+                        <h3
+                            class="text-5xl w-fit h-fit"
+                        >
+                            {title}
+                        </h3>
+                        <h6 class="">{pubDate}</h6>
+                </header>
+                <section
+                    class="mt-10 prose prose-xl prose-h1:mb-7 prose-h2:mt-5 prose-p:text-xl md:w-[80vw] w-screen flex mx-auto place-items-center flex-col"
+                >
+                    <slot />
+                </section>
+            </article>
+        </main>
+    </body>
 </html>
