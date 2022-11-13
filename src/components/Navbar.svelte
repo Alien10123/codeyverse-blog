@@ -16,16 +16,10 @@
 </script>
 
 <nav
-    class="relative z-50 pl-2 pr-2 gap-4 w-screen h-[10vh] place-items-center border-b border-[#ffffff4d] font-bold flex"
-    style="background: linear-gradient(180deg, rgba(75,125,219,1), rgba(187,210,255,1));"
+    class="relative z-50 pl-2 pr-2 gap-4 w-screen h-[10vh] bg-secondary place-items-center font-bold flex" id="nav"
 >
     <a rel="prefetch" href="/" class="flex gap-4 place-items-center">
-        <img src="/logo.png" alt="Codey Verse Logo" class="h-[8vh]" />
-        <h1
-            class="md:text-3xl hover:text-brand text-2xl font-bold hover:text-info transition-colors duration-30000"
-        >
-            The Codey Verse Blog
-        </h1>
+        <img src="/logo.png" alt="Codey Verse Logo" class="h-[6vh]" />
     </a>
     <img
         src="/menu-icon.svg"
@@ -34,6 +28,7 @@
         on:click={() => (navOpen = !navOpen)}
     />
 </nav>
+<div id="navBorder" />
 
 <nav
     class={`h-[90vh] w-screen ${

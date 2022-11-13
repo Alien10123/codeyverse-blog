@@ -375,6 +375,14 @@ body {
     @apply text-white;
 }
 
+#navBorder {
+    width: 98vw;
+    margin: 0 auto;
+    height: 1px;
+    background: rgba(179, 179, 179, 0.4);
+    z-index: 100;
+}
+
 @media screen and (min-width: 200px) and (max-width: 768px) {
     .sideBarLeft {
         animation: addHeightSM 0.58s 2.5s linear forwards;
