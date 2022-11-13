@@ -1,10 +1,10 @@
-# Codey Verse Blog
+# Coddem Blog
 
-This is a simple blog website for another website I am making called Codey Verse. I am going to use it to document how I am build Codey Verse.
+This is a simple blog website for another website I am making called Coddem. I am going to use it to document how I am build Coddem.
 
 This blog uses [Astro](https://astro.build), [Svelte](https://svelte.dev) and [Tailwind css](https://tailwindcss.com). I have also installed the cloudflare adapter as I am going to host this on cloudflare.
 
-Feel free to use this and edit it for your own purpose. Although I would prefer if you didn't use the tailwind css theme as that is going to be the theme for Codey Verse.
+Feel free to use this and edit it for your own purpose. Although I would prefer if you didn't use the tailwind css theme as that is going to be the theme for Coddem.
 
 ### Run Locally
 If you want to run this locally you can clone the repo. Then you can install all the dependencies using pnpm, npm or yarn. I would recommend pnpm as it is faster. And then just run `npm run dev` or `yarn dev` to run it locally.

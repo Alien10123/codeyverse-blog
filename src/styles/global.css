@@ -270,7 +270,7 @@ body {
     width: 0;
     height: 3px;
     animation: addWidth 1.5s 1s linear forwards;
-    transform: translateX(-1.2rem);
+    transform: translateX(-1.05rem);
 }
 
 .boardAdd::before {
@@ -280,7 +280,7 @@ body {
     width: 0;
     height: 3px;
     animation: addWidth 1.5s 1s linear forwards;
-    transform: translateX(-1.2rem);
+    transform: translateX(-1.05rem);
     margin-left: auto;
 }
 

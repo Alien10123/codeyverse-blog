@@ -6,7 +6,6 @@
     state = Math.floor(Math.random() * 6);
 
     setInterval(() => {
-        console.log(shapeHover);
         if (navOpen && shapeHover === false) {
             state = "transition";
             setTimeout(() => {
