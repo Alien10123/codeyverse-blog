@@ -10,11 +10,192 @@ import Header from "../components/Header.astro";
             title="The Coddem Blog"
             description="A website were I will blog my experience in building Coddem, a open source website where anyone will be able to learn how to code for free."
         />
+        <script>
+            import {
+                Scene,
+                PerspectiveCamera,
+                WebGLRenderer,
+                LinearFilter,
+                WebGLRenderTarget,
+                CapsuleGeometry,
+                MeshBasicMaterial,
+                Mesh,
+            } from "three";
+            import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer";
+            import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+            import { BlendShader } from "three/examples/jsm/shaders/BlendShader.js";
+            import { SavePass } from "three/examples/jsm/postprocessing/SavePass.js";
+            import { CopyShader } from "three/examples/jsm/shaders/CopyShader.js";
+            import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
+
+            const scene = new Scene();
+            const camera = new PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                1000
+            );
+
+            const renderer = new WebGLRenderer({ alpha: true });
+            renderer.setSize(
+                window.innerWidth,
+                window.innerHeight - window.innerHeight / 10
+            );
+            document.body.appendChild(renderer.domElement);
+            const composer = new EffectComposer(renderer);
+
+            const renderPass = new RenderPass(scene, camera);
+
+            const renderTargetParameters = {
+                minFilter: LinearFilter,
+                magFilter: LinearFilter,
+                stencilBuffer: false,
+            };
+
+            // save pass
+            const savePass = new SavePass(
+                new WebGLRenderTarget(
+                    window.innerWidth,
+                    window.innerHeight,
+                    renderTargetParameters
+                )
+            );
+
+            // blend pass
+            const blendPass = new ShaderPass(BlendShader, "tDiffuse1");
+            blendPass.uniforms["tDiffuse2"].value =
+                savePass.renderTarget.texture;
+            blendPass.uniforms["mixRatio"].value = 0.8;
+
+            // output pass
+            const outputPass = new ShaderPass(CopyShader);
+            outputPass.renderToScreen = true;
+
+            // adding passes to composer
+            composer.addPass(renderPass);
+            composer.addPass(blendPass);
+            composer.addPass(savePass);
+            composer.addPass(outputPass);
+
+            const starGeometry = () => {
+                const geo = new CapsuleGeometry(
+                    Math.random() * (0.21 - 0.08) + 0.08,
+                    0.1,
+                    6,
+                    10
+                );
+                geo.rotateX(80);
+                return geo;
+            };
+
+            const starMaterial = () => {
+                const number = Math.floor(Math.random() * 4) + 1;
+                let colour = null;
+                switch (number) {
+                    case 1:
+                        colour = 0xffffff;
+                        break;
+                    case 2:
+                        colour = 0x478fff;
+                        break;
+                    case 3:
+                        colour = 0xff1c1c;
+                        break;
+                    case 4:
+                        colour = 0x12de00;
+                        break;
+                    default:
+                        colour = 0xffffff;
+                        break;
+                }
+                return new MeshBasicMaterial({ color: colour });
+            };
+
+            let stars: Array<{
+                x: number;
+                y: number;
+                z: number;
+                mesh: Mesh<CapsuleGeometry, MeshBasicMaterial>;
+            }> = [];
+
+            function addStar() {
+                const capsule = new Mesh(starGeometry(), starMaterial());
+                let x = Math.random() * (20 - -20 + 1) + -20;
+                let y = Math.random() * (12 - -12 + 1) + -12;
+                let z = Math.random() * (5 - -25 + 1) + -25;
+                while (x < 3 && x > -3) {
+                    x = Math.random() * (20 - -20 + 1) + -20;
+                }
+                capsule.position.x = x;
+                capsule.position.y = y;
+                capsule.position.z = z;
+                scene.add(capsule);
+                stars.push({
+                    x,
+                    y,
+                    z,
+                    mesh: capsule,
+                });
+                console.log(x, y, z);
+            }
+
+            Array(150).fill(null).forEach(addStar);
+
+            camera.position.z = 5;
+
+            let speed = 0;
+            let i = 0;
+            let stopping = Math.random() * (600 - 400 + 1) + 400;
+            let scale = 0;
+            let main = document.getElementById("main");
+            function animate() {
+                i++;
+                if (i <= 150) {
+                    speed = speed + 0.002;
+                }
+                if (i >= stopping) {
+                    if (scale === 0) {
+                        main!.classList.remove("hidden");
+                        main!.classList.add("flex");
+                    }
+                    if (scale < 1) {
+                        scale = scale + 0.01;
+                        main!.style.scale = (
+                            scale + 0.01
+                        ).toString();
+                    }
+                    if (speed > 0) {
+                        speed = speed - 0.002;
+                    }
+                }
+
+                if (i <= stopping + 250) {
+                    requestAnimationFrame(animate);
+                } else {
+                    console.log(123);
+                }
+                composer.render();
+                stars.forEach((v) => {
+                    if (v.mesh.position.z > 5.1) {
+                        v.mesh.position.z = Math.random() * (5 - -40 + 1) + -40;
+                    }
+                    v.mesh.translateZ(speed);
+                });
+            }
+
+            animate();
+        </script>
+        <style>
+            body {
+                overflow-y: hidden;
+            }
+        </style>
     </head>
     <body class="bg-base-100">
         <Header />
         <main
-            class="flex flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full place-items-center"
+            class="flex-col absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full place-items-center hidden"
+            id="main"
         >
             <div class="h-fit flex justify-start">
                 <div class="sideBarLeft relative z-40"></div>
