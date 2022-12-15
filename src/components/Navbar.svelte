@@ -80,7 +80,7 @@
                 on:mouseleave={() => (shapeHover = false)}
             >
                 <h3 class="lg:text-4xl md:text-2xl text-accent font-bold text-center">
-                    Codey Verse Github
+                    Coddem Github
                 </h3>
             </div>
         </a>
