@@ -18,7 +18,7 @@
 <nav
     class="relative z-50 pl-2 pr-2 gap-4 w-screen h-[10vh] bg-secondary place-items-center font-bold flex" id="nav"
 >
-    <a rel="prefetch" href="/" class="flex gap-4 place-items-center">
+    <a rel="prefetch" href="/run=no" class="flex gap-4 place-items-center">
         <img src="/logo.png" alt="Codey Verse Logo" class="h-[6vh]" />
     </a>
     <img
@@ -36,7 +36,7 @@
     } bg-primary absolute z-50 transition-all duration-[3s]`}
 >
     <div class="hidden h-full w-full md:block">
-        <a href="/" rel="prefetch"
+        <a href="/?run=no" rel="prefetch"
             ><div
                 class="bg-accent navShape1 absolute shape grid place-items-center"
                 data-config={state}

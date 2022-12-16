@@ -23,23 +23,23 @@ const {
         <BaseHead title={title + " | Codey Verse"} description={description} />
     </head>
 
-    <body class="bg-base-100">
+    <body class="bg-secondary">
         <Header />
         <main>
             <article>
                 <header
                     style={`background: linear-gradient(0deg, rgba(40,40,40,0.9) 17%, rgba(187,210,255,0) 75%), url('/examplePost.png'), #${background}; background-size: contain; background-repeat: no-repeat; background-position: center;`}
-                    class={`w-screen h-[40vh] flex flex-col justify-end gap-3 pb-3`}
+                    class={`w-screen h-[40vh] flex flex-col justify-end gap-1 pb-3`}
                 >
                         <h3
-                            class="text-5xl w-fit h-fit"
+                            class="text-5xl w-fit h-fit ml-8"
                         >
                             {title}
                         </h3>
-                        <h6 class="">{pubDate}</h6>
+                        <h6 class="ml-8">{pubDate}</h6>
                 </header>
                 <section
-                    class="bg-secondary mt-10 prose prose-xl prose-h1:mb-7 prose-h2:mt-5 prose-p:text-xl md:w-[80vw] w-screen flex mx-auto place-items-center flex-col"
+                    class="bg-secondary mt-10 prose prose-xl prose-h1:mb-7 prose-h2:mt-5 prose-p:text-xl flex place flex-col w-screen md:w-[80vw] mx-auto"
                 >
                     <slot />
                 </section>
